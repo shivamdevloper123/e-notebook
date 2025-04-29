@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+#   📓 eNotebook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**eNotebook** is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application that allows users to securely manage their personal notes. It supports creating, updating, deleting, and categorizing notes. Authentication is handled via JWT tokens, ensuring user privacy and secure access to data.
 
-## Available Scripts
+This app features a clean Bootstrap-based UI, robust backend API, and contextual alerts for improved user experience. It’s an ideal project to demonstrate full-stack development skills and how frontend and backend interact in a secure, real-time environment.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##   🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   Secure user authentication using JWT.
+-   CRUD operations for notes: Add, Edit, Delete, View.
+-   Note categorization with tags.
+-   Protected routes that redirect unauthenticated users to login.
+-   Real-time UI updates.
+-   Alert messages for success and error handling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+##   🛠️ Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Frontend**: React.js, Bootstrap, Context API, React Router
+**Backend**: Node.js, Express.js, MongoDB, Mongoose, JWT
+**Dev Tools**: Postman, Concurrently, dotenv
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##   📁 Folder Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    eNotebook/
+    ├── backend/
+    │   ├── db.js          # MongoDB connection setup
+    │   ├── index.js       # Main Express server file
+    │   ├── .env           # Environment variables (PORT, DB_URI, JWT_SECRET)
+    │   ├── package.json   # Backend dependencies
+    │   └── routes/
+    │       ├── auth.js    # User authentication routes
+    │       └── notes.js   # Notes CRUD routes
+    │
+    ├── frontend/
+    │   ├── public/        # Public assets
+    │   │   └── index.html # HTML root file
+    │   ├── src/
+    │   │   ├── App.js     # Root React component
+    │   │   ├── index.js   # Entry point for React app
+    │   │   ├── context/
+    │   │   │   └── notes/
+    │   │   │       ├── NoteContext.js # React context for notes
+    │   │   │       └── NoteState.js   # Context state provider
+    │   │   ├── components/
+    │   │   │   ├── AddNote.js     # Add note form component
+    │   │   │   ├── Noteitem.js    # Single note display component
+    │   │   │   ├── Notes.js       # Notes list and modal for editing
+    │   │   │   ├── Navbar.js      # Navigation bar
+    │   │   └── pages/
+    │   │       ├── Home.js        # Home page
+    │   │       ├── About.js       # About page
+    │   │       ├── Login.js       # Login page
+    │   │       └── Signup.js      # Signup page
+    │   ├── .env           # Frontend environment variables (if any)
+    │   └── package.json   # Frontend dependencies
+    │
+    └── README.md          # Project documentation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+##   ⚙️ Configuration
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run both frontend and backend concurrently, the root-level `package.json` uses the `concurrently` package:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+"scripts": {
+    "both": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\""
+}
+🚀 InstallationClone the repository:git clone <repository_url>
+cd eNotebook
+Set up the backend:Navigate to the backend folder:cd backend
+Install dependencies:npm install
+Create a .env file in the backend directory and add your MongoDB URI and JWT secret:PORT=5000
+DB_URI="your_mongodb_connection_string"
+JWT_SECRET="your_jwt_secret_key"
+Set up the frontend:Navigate to the frontend folder:cd ../frontend
+Install dependencies:npm install
+Create a .env file in the frontend directory if you have any frontend specific environment variables.🏃‍♂️ How to Run the ApplicationRun the application:From the root directory, run:npm run both
+This will start both the frontend and backend servers concurrently.Open your browser:Visit http://localhost:3000 to view the application.🤝 Contribution GuidelinesContributions are welcome! Here's how you can contribute:**Fork
